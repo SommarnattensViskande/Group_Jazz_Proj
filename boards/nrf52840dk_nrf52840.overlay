@@ -1,0 +1,27 @@
+/*
+ * Copyright (c) 2022 Nikolaus Huber
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+&i2c0 {
+	veml7700@10 {
+		compatible = "vishay,veml7700";
+		reg = <0x10>;
+		label = "VEML7700";
+		als-it = <100>;
+		gain = "x1/8";
+		persistence = <1>;
+		enable-psm;
+		psm-mode = "mode 1";
+	};
+
+	mpu6050@68 {
+		compatible = "invensense,mpu6050";
+		reg = <0x68>;
+		status = "okay";
+		label = "MPU6050";
+		int-gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+	};
+};
+
